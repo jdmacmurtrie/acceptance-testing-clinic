@@ -19,13 +19,12 @@ get "/pets" do
 end
 
 post '/pets' do
-  pet_name = params[:Name]
-  pet_age = params[:Age]
-  pet_color = params[:Color]
+  @pet_name = params[:Name]
+  @pet_age = params[:Age]
+  @pet_color = params[:Color]
 
   CSV.open("pets.csv", "a") do |file|
-    file << [pet_name, pet_age, pet_color]
-    binding.pry
+    file << [@pet_name, @pet_age, @pet_color]
   end
 
   redirect '/pets'
