@@ -13,10 +13,10 @@ feature "add pets" do
     expect(page).to have_field("Name")
     expect(page).to have_field("Color")
     expect(page).to have_field("Age")
-
-    fill_in "Name" with: "Tom"
-    fill_in "Age" with: "35"
-    fill_in "Color" with: "Black"
+    # 
+    # fill_in "Name" with: "Tom"
+    # fill_in "Age" with: "35"
+    # fill_in "Color" with: "Black"
     click_on "Submit"
 
     expect(page).to have_content("Tom")

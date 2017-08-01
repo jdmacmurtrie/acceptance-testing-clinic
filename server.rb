@@ -5,7 +5,6 @@ require "pry"
 set :bind, '0.0.0.0'  # bind to all interfaces
 
 get "/" do
-<h2>
   redirect "/pets"
 end
 
@@ -21,6 +20,7 @@ end
 get "/pets/:pet" do
   @pet_name = params[:pet]
   CSV.foreach('pets.csv', headers: true, header_converters: :symbol) do |row|
+    binding.pry
     if row[:name] == @pet_name
       @pet_age = row[:age]
       @pet_color = row[:color]
