@@ -1,7 +1,3 @@
 <% @pets.each do |pet| %>
-  <li>
-    <a href="pets/<%= pet[:name] %>"><%= pet[:name] %></a>
-  </li>
+  <a href="/pets/<%= pet[:name] %>"><%= pet[:name] %></a>
 <% end %>
-</ul>
-<a href="pets/form"> Add new pet! </a>

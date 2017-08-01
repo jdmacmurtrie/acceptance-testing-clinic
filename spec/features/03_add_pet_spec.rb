@@ -8,17 +8,18 @@ feature "add pets" do
   end
 
   scenario "user adds a pet successfully in a new form page" do
-    visit '/'
+    visit '/pets'
 
-    click_link 'Add new pet!'
+    expect(page).to have_field("Name")
+    expect(page).to have_field("Color")
+    expect(page).to have_field("Age")
 
-    fill_in 'Name', with: 'Garfield'
-    fill_in 'Age', with: '127389217398'
-    fill_in 'Color', with: 'Blue'
+    fill_in "Name" with: "Tom"
+    fill_in "Age" with: "35"
+    fill_in "Color" with: "Black"
+    click_on "Submit"
 
-    click_on 'Submit'
-
-    expect(page).to have_content('Garfield')
-    expect(page).to have_link('Garfield')
+    expect(page).to have_content("Tom")
+    expect(page.current_path).to eq("/")
   end
 end

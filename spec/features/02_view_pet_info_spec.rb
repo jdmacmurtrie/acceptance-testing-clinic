@@ -14,12 +14,13 @@ feature "view pets show" do
   end
 
   scenario "page should show the specific information for a pet" do
-    visit "/"
+    visit '/pets'
 
-    click_on "Garfield"
+    click_on 'Garfield'
 
-    expect(page).to have_content("Garfield")
+    expect(page).to_not have_link("Garfield")
     expect(page).to have_content("21")
     expect(page).to have_content("Orange")
+    expect(page).to have_content("Garfield")
   end
 end
